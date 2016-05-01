@@ -9,5 +9,7 @@ public class ServicePath {
 	public static final String PUBLIC_ROOT_PATH = ROOT_PATH + "/public";
 	
 	public static final String PRIVATE_ROOT_PATH = ROOT_PATH + "/private";
+	
+	public static final String PESSOA_PATH = PRIVATE_ROOT_PATH + "/pessoas";
 
 }
