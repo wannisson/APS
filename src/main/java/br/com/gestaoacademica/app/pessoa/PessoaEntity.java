@@ -16,6 +16,9 @@ public class PessoaEntity extends BaseEntity<Long> {
 	
 	@Column(name = "nome", length = 60, nullable = false)
 	private String nome;
+	
+	@Column(name = "telefone")
+	private String telefone;
 
 	public String getNome() {
 		return nome;
@@ -24,6 +27,15 @@ public class PessoaEntity extends BaseEntity<Long> {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+	
 	
 	
 
