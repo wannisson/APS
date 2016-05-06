@@ -10,6 +10,6 @@ public class ServicePath {
 	
 	public static final String PRIVATE_ROOT_PATH = ROOT_PATH + "/private";
 	
-	public static final String PESSOA_PATH = PRIVATE_ROOT_PATH + "/pessoas";
+	public static final String ALUNO_PATH = PRIVATE_ROOT_PATH + "/alunos";
 
 }
