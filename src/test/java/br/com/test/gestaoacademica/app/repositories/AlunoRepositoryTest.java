@@ -12,6 +12,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.gestaoacademica.app.aluno.AlunoEntity;
 import br.com.gestaoacademica.app.aluno.AlunoRepository;
+import br.com.gestaoacademica.app.usuario.UsuarioEntity;
+import br.com.gestaoacademica.app.usuario.UsuarioRepository;
 import br.com.test.gestaoacademica.app.utils.AppContextTest;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -23,27 +25,32 @@ public class AlunoRepositoryTest {
 	@Autowired
 	private AlunoRepository    alunoRepository;
 	
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+	
 	
 	@Test
-	public void testListarUsuarios(){
+	public void testListarAlunos(){
 		List<AlunoEntity> listaAluno = this.alunoRepository.findAll();
 		
-		LOGGER.info(" package " + listaAluno);
+		LOGGER.info(" aluno " + listaAluno);
 	}
 	
 	@Test
-	public void adcionarUsuario(){
+	public void adcionarAluno(){
 	
+		UsuarioEntity usuario = this.usuarioRepository.findOne(1L);
 		AlunoEntity aluno = new AlunoEntity();
 		aluno.setNome("Wannisson");
 		aluno.setTelefone("991393623");
+		aluno.setUsuario(usuario);
 		
 		alunoRepository.save(aluno);
 	
 	}
 	
 	@Test
-	public void deletarUsuario(){
+	public void deletarAluno(){
 			
 		alunoRepository.delete(1L);
 	
