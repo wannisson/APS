@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
-Implementation-Vendor: Pivotal Software, Inc.
 Implementation-Title: app
 Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: uilian
 Implementation-Vendor-Id: br.com.gestaoacademica
-Build-Jdk: 1.7.0_79
-Built-By: user
+Build-Jdk: 1.8.0_74
 Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
 
