@@ -22,5 +22,5 @@ public class ServicePath {
 	
 	public static final String NOTA_PATH = PRIVATE_ROOT_PATH + "/notas";
 	
-
+	public static final String EVENTO_PATH = PRIVATE_ROOT_PATH + "/eventos";
 }
