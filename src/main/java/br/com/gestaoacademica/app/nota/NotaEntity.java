@@ -30,7 +30,7 @@ public class NotaEntity extends BaseEntity<Long> {
 	private String descricao;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_nota")
+	@JoinColumn(name = "id_disciplina")
 	private DisciplinaEntity disciplina;
 
 	public String getNota() {
