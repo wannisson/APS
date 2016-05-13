@@ -3,8 +3,12 @@ package br.com.gestaoacademica.app.usuario;
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import br.com.gestaoacademica.app.aluno.AlunoEntity;
 import br.com.gestaoacademica.app.utils.BaseEntity;
 
 @Entity
@@ -25,18 +29,6 @@ public class UsuarioEntity extends BaseEntity<Long> {
 
 	@Column(name = "email")
 	private String email;
-
-	public UsuarioEntity(String usuario, String email, String senha) {
-		super();
-		this.usuario = usuario;
-		this.email = email;
-		this.senha = senha;
-
-	}
-
-	public UsuarioEntity() {
-
-	}
 
 	public String getUsuario() {
 		return usuario;

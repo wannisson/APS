@@ -1,51 +1,40 @@
 package br.com.gestaoacademica.app.disciplina;
 
+import java.util.List;
+
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.com.gestaoacademica.app.professor.ProfessorEntity;
+import br.com.gestaoacademica.app.horario.HorarioEntity;
 import br.com.gestaoacademica.app.utils.BaseEntity;
 
 @Entity
 @Table(name = "tb_disciplina")
 @AttributeOverride(name = "id", column = @Column(name = "id"))
-public class DisciplinaEntity extends BaseEntity<Long>{
+public class DisciplinaEntity extends BaseEntity<Long> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Column(name = "nome")
 	private String nomeDisciplina;
-	
+
 	@Column(name = "abreviacao")
 	private String abreviacao;
-	
+
 	@Column(name = "cor")
 	private String cor;
-	
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="id_professor")
-	private ProfessorEntity  professor;
-	
-	public DisciplinaEntity(){
-		
-	}
-	
-	public DisciplinaEntity(String nomeDisciplina, String abreviacao, 
-			String cor,ProfessorEntity professor){
-		super();
-		this.nomeDisciplina = nomeDisciplina;
-		this.abreviacao = abreviacao;
-		this.cor = cor;
-		this.professor = professor;
-	}
+
+	@OneToMany(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_disciplina")
+	private List<HorarioEntity> horarios;
 
 	public String getNomeDisciplina() {
 		return nomeDisciplina;
@@ -71,15 +60,12 @@ public class DisciplinaEntity extends BaseEntity<Long>{
 		this.cor = cor;
 	}
 
-	public ProfessorEntity getProfessor() {
-		return professor;
+	public List<HorarioEntity> getHorarios() {
+		return horarios;
 	}
 
-	public void setProfessor(ProfessorEntity professor) {
-		this.professor = professor;
+	public void setHorarios(List<HorarioEntity> horarios) {
+		this.horarios = horarios;
 	}
-	
-	
-	
 
 }

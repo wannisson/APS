@@ -7,8 +7,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import br.com.gestaoacademica.app.disciplina.DisciplinaEntity;
 import br.com.gestaoacademica.app.utils.BaseEntity;
 
 @Entity
@@ -16,9 +20,6 @@ import br.com.gestaoacademica.app.utils.BaseEntity;
 @AttributeOverride(name = "id", column = @Column(name = "id"))
 public class EventoEntity extends BaseEntity<Long>{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "nome")
@@ -32,6 +33,11 @@ public class EventoEntity extends BaseEntity<Long>{
 	
 	@Enumerated(EnumType.STRING)
 	private TipoEventoEnum tipoEvento;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="id_disciplina")
+	private DisciplinaEntity disciplina;
+	
 
 	public String getNome() {
 		return nome;
@@ -64,7 +70,13 @@ public class EventoEntity extends BaseEntity<Long>{
 	public void setTipoEvento(TipoEventoEnum tipoEvento) {
 		this.tipoEvento = tipoEvento;
 	}
-	
 
-	
+	public DisciplinaEntity getDisciplina() {
+		return disciplina;
+	}
+
+	public void setDisciplina(DisciplinaEntity disciplina) {
+		this.disciplina = disciplina;
+	}
+
 }

@@ -1,5 +1,6 @@
 package br.com.test.gestaoacademica.app.repositories;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -12,6 +13,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.gestaoacademica.app.aluno.AlunoEntity;
 import br.com.gestaoacademica.app.aluno.AlunoRepository;
+import br.com.gestaoacademica.app.disciplina.DisciplinaEntity;
+import br.com.gestaoacademica.app.disciplina.DisciplinaRepository;
 import br.com.gestaoacademica.app.usuario.UsuarioEntity;
 import br.com.gestaoacademica.app.usuario.UsuarioRepository;
 import br.com.test.gestaoacademica.app.utils.AppContextTest;
@@ -28,6 +31,9 @@ public class AlunoRepositoryTest {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
+	@Autowired
+	private DisciplinaRepository disciplinaRepository;
+	
 	
 	@Test
 	public void testListarAlunos(){
@@ -39,11 +45,17 @@ public class AlunoRepositoryTest {
 	@Test
 	public void adcionarAluno(){
 	
-		UsuarioEntity usuario = this.usuarioRepository.findOne(1L);
+		DisciplinaEntity disciplina = this.disciplinaRepository.findOne(1L);
+		List<DisciplinaEntity> listDisciplina = new ArrayList<DisciplinaEntity>();
+		listDisciplina.add(disciplina);
+		
+		UsuarioEntity usuario = this.usuarioRepository.findOne(2L);
 		AlunoEntity aluno = new AlunoEntity();
+		aluno.setId(1L);
 		aluno.setNome("Wannisson");
 		aluno.setTelefone("991393623");
 		aluno.setUsuario(usuario);
+		aluno.setDisciplina(listDisciplina);
 		
 		alunoRepository.save(aluno);
 	

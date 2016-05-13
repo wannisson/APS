@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import br.com.gestaoacademica.app.disciplina.DisciplinaEntity;
+import br.com.gestaoacademica.app.disciplina.DisciplinaRepository;
 import br.com.gestaoacademica.app.nota.NotaEntity;
 import br.com.gestaoacademica.app.nota.NotaRepository;
 import br.com.test.gestaoacademica.app.utils.AppContextTest;
@@ -23,6 +25,9 @@ public class NotaRepositoryTest {
 	@Autowired
 	private NotaRepository		notaRepository;
 	
+	@Autowired
+	private DisciplinaRepository disciplinaRepository;
+	
 	@Test
 	public void testListarNota(){
 		List<NotaEntity> listaNotas = this.notaRepository.findAll();
@@ -33,11 +38,14 @@ public class NotaRepositoryTest {
 	@Test
 	public void adicionarNota(){
 		
+		DisciplinaEntity disc = this.disciplinaRepository.findOne(1L);
+		
 		NotaEntity nota = new NotaEntity();
 		nota.setDescricao("prova P1");
-		nota.setFkDisciplina(2L);
+		nota.setDisciplina(disc);
 		nota.setTitulo("P1");
 		nota.setNota("10");
+	
 		
 		this.notaRepository.save(nota);
 		

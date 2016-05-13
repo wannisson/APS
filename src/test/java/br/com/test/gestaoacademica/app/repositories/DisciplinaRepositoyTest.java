@@ -1,5 +1,6 @@
 package br.com.test.gestaoacademica.app.repositories;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -12,6 +13,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.gestaoacademica.app.disciplina.DisciplinaEntity;
 import br.com.gestaoacademica.app.disciplina.DisciplinaRepository;
+import br.com.gestaoacademica.app.horario.HorarioEntity;
+import br.com.gestaoacademica.app.horario.HorarioRepository;
+import br.com.gestaoacademica.app.nota.NotaEntity;
+import br.com.gestaoacademica.app.nota.NotaRepository;
 import br.com.gestaoacademica.app.professor.ProfessorEntity;
 import br.com.gestaoacademica.app.professor.ProfessorRepository;
 import br.com.test.gestaoacademica.app.utils.AppContextTest;
@@ -28,6 +33,12 @@ public class DisciplinaRepositoyTest {
 	@Autowired
 	private ProfessorRepository professorRepository;
 	
+	@Autowired
+	private HorarioRepository  horarioRepository;
+	
+	@Autowired
+	private NotaRepository notaRepository;
+	
 	@Test
 	public void testListaDisciplina(){
 		List<DisciplinaEntity> listaDisciplina = this.disciplinaRepository.findAll();
@@ -38,13 +49,24 @@ public class DisciplinaRepositoyTest {
 	@Test
 	public void adicionarDisciplina(){
 	
+	List<HorarioEntity> listaHorarios = new ArrayList<HorarioEntity>();
+	
+	HorarioEntity horario = this.horarioRepository.findOne(1L);
+	listaHorarios.add(horario);
+	
+	NotaEntity nota = this.notaRepository.findOne(1L);
+	
 	ProfessorEntity professor = this.professorRepository.findOne(2L);
 	
 	DisciplinaEntity disciplina = new DisciplinaEntity();
+	disciplina.setId(1L);
 	disciplina.setNomeDisciplina("banco de dados");
 	disciplina.setAbreviacao("BD");
 	disciplina.setCor("branco");
-	disciplina.setProfessor(professor);
+	disciplina.setHorarios(listaHorarios);
+	
+	
+	
 	
 	this.disciplinaRepository.save(disciplina);
 		

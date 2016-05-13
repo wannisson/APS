@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.gestaoacademica.app.utils.GenericService;
 import br.com.gestaoacademica.app.utils.ServicePath;
 
-@RestController
-@RequestMapping(path = ServicePath.PROFESSOR_PATH)
-public class ProfessorService extends GenericService<ProfessorEntity, Long>{
-
-}
+//@RestController
+//@RequestMapping(path = ServicePath.PROFESSOR_PATH)
+//public class ProfessorService extends GenericService<ProfessorEntity, Long>{
+//
+//}

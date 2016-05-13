@@ -1,64 +1,63 @@
 package br.com.gestaoacademica.app.horario;
 
-
-
 import java.util.Date;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import br.com.gestaoacademica.app.disciplina.DisciplinaEntity;
 import br.com.gestaoacademica.app.utils.BaseEntity;
 
 @Entity
 @Table(name = "tb_horario")
 @AttributeOverride(name = "id", column = @Column(name = "id"))
-public class HorarioEntity extends BaseEntity<Long>{
+public class HorarioEntity extends BaseEntity<Long> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	@Column(name = "data",unique=true)
-	private Date data;
-	
-	@Column(name = "horario",unique=true)
-	private Date horario;
-	
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="id_disciplina")
-	private DisciplinaEntity disciplina;
+
+	@Column(name = "dia", unique = true)
+	private Date dia;
+
+	@Column(name = "h_inicio", unique = true)
+	private Date inicio;
+
+	@Column(name = "h_fim", unique = true)
+	private Date fim;
 
 	public Date getData() {
-		return data;
+		return dia;
 	}
 
-	public void setData(Date data) {
-		this.data = data;
+	public void setData(Date dia) {
+		this.dia = dia;
 	}
 
-	public Date getHorario() {
-		return horario;
+	public Date getDia() {
+		return dia;
 	}
 
-	public void setHorario(Date horario) {
-		this.horario = horario;
+	public void setDia(Date dia) {
+		this.dia = dia;
 	}
 
-	public DisciplinaEntity getDisciplina() {
-		return disciplina;
+	public Date getInicio() {
+		return inicio;
 	}
 
-	public void setDisciplina(DisciplinaEntity disciplina) {
-		this.disciplina = disciplina;
+	public void setInicio(Date inicio) {
+		this.inicio = inicio;
 	}
-	
-	
+
+	public Date getFim() {
+		return fim;
+	}
+
+	public void setFim(Date fim) {
+		this.fim = fim;
+	}
 
 }

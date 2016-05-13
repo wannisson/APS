@@ -48,7 +48,7 @@ public class UsuarioRepositoryTest {
 	@Test
 	public void deletarUsuario() {
 		
-	this.usuarioRepository.delete(2L);
+	this.usuarioRepository.delete(1L);
 		
 	}
 

@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.gestaoacademica.app.utils.GenericService;
 import br.com.gestaoacademica.app.utils.ServicePath;
 
-@RestController
-@RequestMapping(path = ServicePath.HORARIO_PATH)
-public class HorarioService extends GenericService<HorarioEntity, Long>{
-
-}
+//@RestController
+//@RequestMapping(path = ServicePath.HORARIO_PATH)
+//public class HorarioService extends GenericService<HorarioEntity, Long>{
+//
+//}

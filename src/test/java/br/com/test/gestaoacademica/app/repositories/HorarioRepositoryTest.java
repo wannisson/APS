@@ -40,12 +40,11 @@ public class HorarioRepositoryTest {
 	@Test
 	public void adicionarHorario(){
 		
-		DisciplinaEntity disciplina = this.disciplinaRepository.findOne(2L);
-		
 		HorarioEntity horario = new HorarioEntity();
-		horario.setData(new Date());
-		horario.setHorario(new Date());
-		horario.setDisciplina(disciplina);
+		horario.setDia(new Date());
+		horario.setInicio(new Date());
+		horario.setFim(new Date());
+		
 		
 		this.horarioRepository.save(horario);
 	}
